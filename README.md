@@ -9,8 +9,7 @@ Pontos Principais
 
 - Técnicas Utilizadas: O trabalho fundamenta-se em psicometria e métodos estatísticos avançados (análise fatorial, de conglomerados e regressão linear).
 
-A base de dados original não foi aplicada nesse projeto, todavia, a base de dados empregada é sobre violência e crimes em geral 
-oriunda da Secretaria de Segurança do Estado de Minas Gerais (link: https://www.seguranca.mg.gov.br/).
+Nota Importante: Para fins de demonstração/teste dos modelos, o repositório utiliza dados de segurança e criminalidade da Secretaria de Segurança de MG (link: https://www.seguranca.mg.gov.br/), uma vez que a base original do estudo acadêmico possui restrições de privacidade e não foi liberado em tempo hábil para aplicação.
 Ao executar os modelos (arquivos com extensão R) no RStudio (link: https://www.r-project.org/), seguir as orientações:
-- Modelo 'scriptfinal.R': base de dados com extensão 'xlms'
+- Modelo 'scriptfinal.R': base de dados com extensão 'xlsx'
 - Modelo 'scriptfinal_com_interface.R': base de dados com extensão 'csv'
