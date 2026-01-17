@@ -3,9 +3,7 @@ library(dplyr)
 
 ui <- fluidPage(
   fileInput("data_file", "Carregar arquivo CSV:"),
-  actionButton("load_button", "Carregar"),
   actionButton("split_button", "Dividir e Treinar"),
-  actionButton("predict_button", "Prever"),
   actionButton("summary_button", "Resumo do Modelo"),
   dataTableOutput("result_table"),
   dataTableOutput("data_table"), # Added for data visualization
@@ -52,24 +50,13 @@ server <- function(input, output) {
   model <- reactive({
     req(train_data())
   
-    lm(X14 ~ X15 + X17 + X10 + X6 + X9 + X11 + X1 + X2 + X5, data = train_data())
+    # Aplicamos log(x + 1) para lidar com possíveis valores zero nos dados
+    # e estabilizar a variância dos resíduos.
+    lm(log(X14 + 1) ~ log(X9 + 1) + 
+         log(X15 + 1), data = train_data())
   })
   
-  output$result_table <- renderDataTable({
-    req(input$predict_button, train_data(), test_data(), model())
     
-    test_features <- test_data()
-    test_labels <- test_features$X14 # Coluna com os rótulos reais
-    test_predictions <- predict(model(), newdata = test_features)
-    
-    result_df <- data.frame(
-      Real = test_labels,
-      Previsto = test_predictions
-    )
-    
-    result_df
-  })
-  
   output$model_summary <- renderPrint({
     req(input$summary_button, model())
     summary(model())
