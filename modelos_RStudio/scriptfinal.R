@@ -142,5 +142,6 @@ cat("Arquivo processado com sucesso! Use 'BD_PROCESSADO_PARA_SHINY.csv' no Shiny
 
 # 11 Lendo novo dataset
 
-dataNew<-read.csv("BD_PROCESSADO_PARA_SHINY.csv")
-View(dataNew)
+dataInterface<-read.csv("BD_PROCESSADO_PARA_SHINY.csv")
+View(dataInterface)
+
