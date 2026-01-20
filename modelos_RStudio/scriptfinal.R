@@ -125,11 +125,11 @@ df_modelagem$Furto_X14 <- y_alvo
 # 9. Adicionando Clusterização para enriquecer o CSV
 # Vamos criar 3 perfis de cidades baseados nos fatores
 
-#Cluster 1: Cidades pequenas com baixíssima criminalidade.
+#Cluster 1: Cidades com baixíssima criminalidade.
 
-#Cluster 2: Cidades polo regionais (médio porte).
+#Cluster 2: Cidades com um nível médio de criminalidade.
 
-#Cluster 3: Grandes centros urbanos (Belo Horizonte, Uberlândia, etc).
+#Cluster 3: Cidades com alto nível de criminalidade.
 
 set.seed(123)
 clusters <- kmeans(fa_final$scores, centers = 3)
@@ -144,4 +144,5 @@ cat("Arquivo processado com sucesso! Use 'BD_PROCESSADO_PARA_SHINY.csv' no Shiny
 
 dataInterface<-read.csv("BD_PROCESSADO_PARA_SHINY.csv")
 View(dataInterface)
+
 
