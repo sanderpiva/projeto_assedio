@@ -48,7 +48,7 @@ det(cor(dataX))
 
 # 5- Número de fatores da A.F.
 # Método Scree:
-fafitfree <- fa(dAux,nfactors = ncol(dataX), rotate = "none")
+fafitfree <- fa(dataX,nfactors = ncol(dataX), rotate = "none")
 n_factors <- length(fafitfree$e.values)
 scree     <- data.frame(Factor_n =  as.factor(1:n_factors),Eigenvalue = fafitfree$e.values)
 ggplot(scree, aes(x = Factor_n, y = Eigenvalue, group = 1)) +
@@ -86,4 +86,61 @@ print(fa.none)
 fa.diagram(fa.none)
 #-------------
 
-#
+# --- CONTINUAÇÃO DO SCRIPT ---
+# APLICAÇÃO DE ANALISE FATORIAL E CLUSTERIZAÇÃO
+# OBJETIVO? BASE DADOS FINAL PARA MODELO PREDITIVO
+
+# 7.1 Isolamento do Alvo (Furto)
+y_alvo <- dataX$X14
+data_para_fatores <- dataX %>% select(-X14)
+
+# 7.2 Execução da AF de Produção (Sem o X14)
+# Note: usamos fm="pa" para Principal Axis Factoring
+fa_final <- fa(r = data_para_fatores, 
+               nfactors = 2, 
+               fm = "pa", 
+               rotate = "varimax", 
+               scores = "regression")
+
+# 7.3 Visualização para Definição de Nomes
+# Este gráfico mostrará as setas e os coeficientes de cada X para os novos fatores
+fa.diagram(fa_final, main = "Diagrama de Cargas Fatoriais (Sem X14)")
+
+# Exibe as cargas no console para conferência numérica
+print(fa_final$loadings, cutoff = 0.3) # O cutoff esconde valores baixos para facilitar a leitura
+
+# Rodando a AF final com 2 fatores (conforme seu Scree Plot)
+fa_final <- fa(r = data_para_fatores, nfactors = 2, rotate = "varimax", scores = "regression")
+
+# 8. Criando o novo Dataset "Pronto para Machine Learning"
+# Extraímos os scores (que agora representam a estrutura de criminalidade sem o X14)
+df_modelagem <- as.data.frame(fa_final$scores)
+
+names(df_modelagem)[1] <- "Indice_Violencia_e_Confronto_Geral" # Exemplo para PA1/MR1
+names(df_modelagem)[2] <- "Indice_Vulnerabilidade_e_Furtos"  # Exemplo para PA2/MR2
+
+# Adicionamos a variável alvo de volta
+df_modelagem$Furto_X14 <- y_alvo
+
+# 9. Adicionando Clusterização para enriquecer o CSV
+# Vamos criar 3 perfis de cidades baseados nos fatores
+
+#Cluster 1: Cidades pequenas com baixíssima criminalidade.
+
+#Cluster 2: Cidades polo regionais (médio porte).
+
+#Cluster 3: Grandes centros urbanos (Belo Horizonte, Uberlândia, etc).
+
+set.seed(123)
+clusters <- kmeans(fa_final$scores, centers = 3)
+df_modelagem$Perfil_Cidade <- as.factor(clusters$cluster)
+
+# 10. Exportando o arquivo para a Interface Shiny
+write.csv(df_modelagem, "BD_PROCESSADO_PARA_SHINY.csv", row.names = FALSE)
+
+cat("Arquivo processado com sucesso! Use 'BD_PROCESSADO_PARA_SHINY.csv' no Shiny.")
+
+# 11 Lendo novo dataset
+
+dataNew<-read.csv("BD_PROCESSADO_PARA_SHINY.csv")
+View(dataNew)
