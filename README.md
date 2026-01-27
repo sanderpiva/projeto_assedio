@@ -15,5 +15,5 @@ Ao executar os modelos (arquivos com extensão R) no RStudio (link: https://www.
 - Modelo 'scriptfinal.R': base de dados: BD_VIOLENCIA_MG_2022-3.xlsx
 - Modelo 'scriptfinal_com_interface.R': base de dados: BD_PROCESSADO_PARA_SHINY.csv
   
-Ao executar o 'scriptfinal.R', aplicando Análise Fatorial e Clusterização para reduzir o número de variáveis e agrupar os registros em 3 categorias: 1 cidades com baixíssima criminalidade, 2 cidades com um nível médio de criminalidade, 3 cidades com alto nível de criminalidade, nota-se a gerenção de um dataframe 'BD_PROCESSADO_PARA_SHINY.csv' que será usado em 'scriptfinal_com_interface.R'. 
+Durante a execução do 'scriptfinal.R', aplica-se Análise Fatorial e Clusterização para reduzir o número de variáveis e agrupar os registros em 3 categorias: 1 cidades com baixíssima criminalidade, 2 cidades com um nível médio de criminalidade, 3 cidades com alto nível de criminalidade. No final, nota-se a geração de um dataframe 'BD_PROCESSADO_PARA_SHINY.csv' que será usado em 'scriptfinal_com_interface.R'. 
 
