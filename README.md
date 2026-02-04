@@ -105,7 +105,7 @@ Este script, após a obtenção do dataframe final, fornece a interface visual p
 <p align="left">
   <img src="https://github.com/user-attachments/assets/6f2ec6e4-dd76-47a6-b8e5-83090deb2c1f" alt="Dataframe Parcial" width="100%">
   <br>
-  <b>Foto 3:</b> Summary do modelo preditivo de Regressão Linear.
+  <b>Foto 3:</b> Resumo estatístico do modelo com R² de 0.97..
 </p><br><br>
 
 ---
@@ -113,7 +113,7 @@ Este script, após a obtenção do dataframe final, fornece a interface visual p
 <p align="left">
   <img src="https://github.com/user-attachments/assets/0a4b6047-b2e2-4192-b631-a7f6b42e817d" alt="Dataframe Final" width="100%">
   <br>
-  <b>Foto 4:</b> Gráfico ilustrativo.
+  <b>Foto 4:</b> Gráfico ilustrativo Real vs. Previsto.
 </p><br><br>
 
 > [!IMPORTANT]
