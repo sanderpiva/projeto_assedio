@@ -105,7 +105,7 @@ Este script, após a obtenção do dataframe final, fornece a interface visual p
 <p align="left">
   <img src="https://github.com/user-attachments/assets/6f2ec6e4-dd76-47a6-b8e5-83090deb2c1f" alt="Dataframe Parcial" width="100%">
   <br>
-  <b>Foto 3:</b> Resumo estatístico do modelo com R² de 0.97..
+  <b>Foto 3:</b> Resumo estatístico do modelo com R² de 0.97.
 </p><br><br>
 
 ---
