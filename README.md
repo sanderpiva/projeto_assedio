@@ -123,4 +123,5 @@ Este script, após a obtenção do dataframe final, fornece a interface visual p
 **Desenvolvido como Estudo de Caso Acadêmico e Estatístico.**
 
 ---
-**Autor Bolsista: Sander Gustavo Piva**
+**Autor Bolsista:** Sander Gustavo Piva |
+**Orientador:** Osmar de Araújo Dourado Júnior
