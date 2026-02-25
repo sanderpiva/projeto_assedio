@@ -12,7 +12,7 @@ O estudo visa desenvolver mecanismos para apoiar instituições de ensino na ide
 * **Técnicas Estatísticas:** Fundamentado em Psicometria, incluindo Análise Fatorial, Clusterização e Regressão Linear.
 
 > [!NOTE]
-> **Sobre os Dados:** Devido a restrições de privacidade da base acadêmica original, este repositório utiliza dados de segurança pública para fins de teste.
+> **Sobre os Dados:** Devido a restrições de privacidade e liberação em tempo hábil da base acadêmica original, este repositório utiliza dados de segurança pública na implementação do sistema. Portanto, o foco passa a ser a violência no estado de Minas Gerais.
 > <br>
 > 🔗 Fonte dos dados: [Secretaria de Segurança de MG](https://www.seguranca.mg.gov.br/)
 
